@@ -1,0 +1,168 @@
+PyTorch Model:
+
+EncoderDecoderModel(
+  (encoder): BertModel(
+    (embeddings): BertEmbeddings(
+      (word_embeddings): Embedding(86, 256, padding_idx=76)
+      (position_embeddings): Embedding(30, 256)
+      (token_type_embeddings): Embedding(2, 256)
+      (LayerNorm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (encoder): BertEncoder(
+      (layer): ModuleList(
+        (0): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=256, out_features=256, bias=True)
+              (key): Linear(in_features=256, out_features=256, bias=True)
+              (value): Linear(in_features=256, out_features=256, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=256, out_features=256, bias=True)
+              (LayerNorm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=256, out_features=3072, bias=True)
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=256, bias=True)
+            (LayerNorm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+    )
+    (pooler): BertPooler(
+      (dense): Linear(in_features=256, out_features=256, bias=True)
+      (activation): Tanh()
+    )
+  )
+  (decoder): BertLMHeadModel(
+    (bert): BertModel(
+      (embeddings): BertEmbeddings(
+        (word_embeddings): Embedding(86, 256, padding_idx=76)
+        (position_embeddings): Embedding(30, 256)
+        (token_type_embeddings): Embedding(2, 256)
+        (LayerNorm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (encoder): BertEncoder(
+        (layer): ModuleList(
+          (0): BertLayer(
+            (attention): BertAttention(
+              (self): BertSelfAttention(
+                (query): Linear(in_features=256, out_features=256, bias=True)
+                (key): Linear(in_features=256, out_features=256, bias=True)
+                (value): Linear(in_features=256, out_features=256, bias=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (output): BertSelfOutput(
+                (dense): Linear(in_features=256, out_features=256, bias=True)
+                (LayerNorm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+            (crossattention): BertAttention(
+              (self): BertSelfAttention(
+                (query): Linear(in_features=256, out_features=256, bias=True)
+                (key): Linear(in_features=256, out_features=256, bias=True)
+                (value): Linear(in_features=256, out_features=256, bias=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+              (output): BertSelfOutput(
+                (dense): Linear(in_features=256, out_features=256, bias=True)
+                (LayerNorm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+                (dropout): Dropout(p=0.1, inplace=False)
+              )
+            )
+            (intermediate): BertIntermediate(
+              (dense): Linear(in_features=256, out_features=3072, bias=True)
+            )
+            (output): BertOutput(
+              (dense): Linear(in_features=3072, out_features=256, bias=True)
+              (LayerNorm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+        )
+      )
+    )
+    (cls): BertOnlyMLMHead(
+      (predictions): BertLMPredictionHead(
+        (transform): BertPredictionHeadTransform(
+          (dense): Linear(in_features=256, out_features=256, bias=True)
+          (LayerNorm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+        )
+        (decoder): Linear(in_features=256, out_features=86, bias=True)
+      )
+    )
+  )
+)
+
+Sizes of each parameter:
+
+('encoder.embeddings.word_embeddings.weight', 22016)
+('encoder.embeddings.position_embeddings.weight', 7680)
+('encoder.embeddings.token_type_embeddings.weight', 512)
+('encoder.embeddings.LayerNorm.weight', 256)
+('encoder.embeddings.LayerNorm.bias', 256)
+('encoder.encoder.layer.0.attention.self.query.weight', 65536)
+('encoder.encoder.layer.0.attention.self.query.bias', 256)
+('encoder.encoder.layer.0.attention.self.key.weight', 65536)
+('encoder.encoder.layer.0.attention.self.key.bias', 256)
+('encoder.encoder.layer.0.attention.self.value.weight', 65536)
+('encoder.encoder.layer.0.attention.self.value.bias', 256)
+('encoder.encoder.layer.0.attention.output.dense.weight', 65536)
+('encoder.encoder.layer.0.attention.output.dense.bias', 256)
+('encoder.encoder.layer.0.attention.output.LayerNorm.weight', 256)
+('encoder.encoder.layer.0.attention.output.LayerNorm.bias', 256)
+('encoder.encoder.layer.0.intermediate.dense.weight', 786432)
+('encoder.encoder.layer.0.intermediate.dense.bias', 3072)
+('encoder.encoder.layer.0.output.dense.weight', 786432)
+('encoder.encoder.layer.0.output.dense.bias', 256)
+('encoder.encoder.layer.0.output.LayerNorm.weight', 256)
+('encoder.encoder.layer.0.output.LayerNorm.bias', 256)
+('encoder.pooler.dense.weight', 65536)
+('encoder.pooler.dense.bias', 256)
+('decoder.bert.embeddings.word_embeddings.weight', 22016)
+('decoder.bert.embeddings.position_embeddings.weight', 7680)
+('decoder.bert.embeddings.token_type_embeddings.weight', 512)
+('decoder.bert.embeddings.LayerNorm.weight', 256)
+('decoder.bert.embeddings.LayerNorm.bias', 256)
+('decoder.bert.encoder.layer.0.attention.self.query.weight', 65536)
+('decoder.bert.encoder.layer.0.attention.self.query.bias', 256)
+('decoder.bert.encoder.layer.0.attention.self.key.weight', 65536)
+('decoder.bert.encoder.layer.0.attention.self.key.bias', 256)
+('decoder.bert.encoder.layer.0.attention.self.value.weight', 65536)
+('decoder.bert.encoder.layer.0.attention.self.value.bias', 256)
+('decoder.bert.encoder.layer.0.attention.output.dense.weight', 65536)
+('decoder.bert.encoder.layer.0.attention.output.dense.bias', 256)
+('decoder.bert.encoder.layer.0.attention.output.LayerNorm.weight', 256)
+('decoder.bert.encoder.layer.0.attention.output.LayerNorm.bias', 256)
+('decoder.bert.encoder.layer.0.crossattention.self.query.weight', 65536)
+('decoder.bert.encoder.layer.0.crossattention.self.query.bias', 256)
+('decoder.bert.encoder.layer.0.crossattention.self.key.weight', 65536)
+('decoder.bert.encoder.layer.0.crossattention.self.key.bias', 256)
+('decoder.bert.encoder.layer.0.crossattention.self.value.weight', 65536)
+('decoder.bert.encoder.layer.0.crossattention.self.value.bias', 256)
+('decoder.bert.encoder.layer.0.crossattention.output.dense.weight', 65536)
+('decoder.bert.encoder.layer.0.crossattention.output.dense.bias', 256)
+('decoder.bert.encoder.layer.0.crossattention.output.LayerNorm.weight', 256)
+('decoder.bert.encoder.layer.0.crossattention.output.LayerNorm.bias', 256)
+('decoder.bert.encoder.layer.0.intermediate.dense.weight', 786432)
+('decoder.bert.encoder.layer.0.intermediate.dense.bias', 3072)
+('decoder.bert.encoder.layer.0.output.dense.weight', 786432)
+('decoder.bert.encoder.layer.0.output.dense.bias', 256)
+('decoder.bert.encoder.layer.0.output.LayerNorm.weight', 256)
+('decoder.bert.encoder.layer.0.output.LayerNorm.bias', 256)
+('decoder.cls.predictions.bias', 86)
+('decoder.cls.predictions.transform.dense.weight', 65536)
+('decoder.cls.predictions.transform.dense.bias', 256)
+('decoder.cls.predictions.transform.LayerNorm.weight', 256)
+('decoder.cls.predictions.transform.LayerNorm.bias', 256)
+
+Total number of parameters: 4138070
